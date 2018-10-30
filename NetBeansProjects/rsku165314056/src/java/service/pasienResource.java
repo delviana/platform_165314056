@@ -5,6 +5,10 @@
  */
 package service;
 
+import Helper.pasienHelper;
+import Pojos.Pasien;
+import com.google.gson.Gson;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -13,6 +17,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -33,17 +38,25 @@ public class pasienResource {
 
     /**
      * Retrieves representation of an instance of service.pasienResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response getJson() {
+        pasienHelper test = new pasienHelper();
+        List<Pasien> list = test.getAllPasien();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return Response
+                .status(200)
+                .entity(json)
+                .build();
     }
 
     /**
      * PUT method for updating or creating an instance of pasienResource
+     *
      * @param content representation for the resource
      */
     @PUT
