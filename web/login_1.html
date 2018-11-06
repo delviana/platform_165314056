@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Login</div>
+        <div>
+
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="uname" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
+            
+            
+            <button type="submit" onclick="login()">Login</button>
+        </div>
+        <script>
+            function login() {
+                // logika program cek login
+                // if fungsi web service cek(username,password) == true{
+                var myWindow = window.open("HomeRSku.html", "_self");
+                // set cookie
+             
+            }
+        </script>
+    </body>
+</html>

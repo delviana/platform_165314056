@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!-- Title  -->
+        <title>RS HARAPAN KASIH</title>
+
+        <!-- Favicon  -->
+        <link rel="icon" href="img/core-img/favicon.ico">
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="medilife-load"></div>
+        </div>
+
+        <!-- ***** Header Area Start ***** -->
+        <header class="header-area">
+            <!-- Top Header Area -->
+            <div class="top-header-area">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12 h-100">
+                            <div class="h-100 d-md-flex justify-content-between align-items-center">
+                                <p>Welcome to <span>RS Harapan Kasih</span> website</p>
+                                <p>Opening Hours : Monday to Saturday - 8am to 10pm Contact : <span>+12-821-3369-8920</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Header Area -->
+            <div class="main-header-area" id="stickyHeader">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 h-100">
+                            <div class="main-menu h-100">
+                                <nav class="navbar h-100 navbar-expand-lg">
+                                    <!-- Logo Area  -->
+                                    <a class="navbar-brand" href="HomeRSku.html"><img src="img/core-img/logo.png" alt="Logo"></a>
+
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medilifeMenu" aria-controls="medilifeMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                                    <div class="collapse navbar-collapse" id="medilifeMenu">
+                                        <!-- Menu Area -->
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="HomeRSku.html">Home <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item active">
+                                                <a class="nav-link" href="Dokter.html">Docter</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="Klinik.html">Clinic</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="maps.html">Maps</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Appointment Button -->
+                                        <a href="#" class="btn medilife-appoint-btn ml-30">For <span>emergencies</span> Click here</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ***** Header Area End ***** -->
+        
+        <br><br><br><br/>
+        <br><br><br><br/>
+        <section>
+
+        <style>
+            h1 {
+                border-bottom: 3px solid #cc9900;
+                color: #996600;
+                font-size: 30px;
+            }
+            table, th ,td  {
+                border: 1px solid grey;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+            table tr:nth-child(odd) {
+                background-color: #f1f1f1;
+            }
+            table tr:nth-child(even) {
+                background-color: #ffffff;
+            }
+        </style>
+
+        <br>
+        <br>
+
+    <center><button type="button" onclick="loadDoc()" id="btn">Daftar Dokter</button><br><br></center>
+
+    <div id="id01"></div>
+
+    <script>
+        function loadDoc() {
+            var xmlhttp = new XMLHttpRequest();
+
+                 var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/dokter";
+
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+              var out = "<center><table align='center' style='width: 60%;' border='1'> <tr><td>ID Dokter</td><td>Nama Dokter</td><td>Spesialisasi Dokter</td></tr></center>";
+
+                for (i = 0; i < arr.length; i++) {
+                    out += "<tr><td>" +
+                            arr[i].id +
+                            "</td><td>" +
+                            arr[i].nama +
+                            "</td><td>" +
+                            arr[i].spesialis;
+
+                }
+                out += "</table>";
+                document.getElementById("id01").innerHTML = out;
+            }
+        }
+    </script>
+
+        </section>
+    </body>
+
+
+
+
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugins js -->
+<script src="js/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
+
+</body>
+
+</html>
